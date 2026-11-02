@@ -1,0 +1,20 @@
+Public Sub Data_STT(ws As Worksheet, Dong_BD As Long, cot_STT As String, cot_DongCuoi As String)
+    'Khai báo các bi?n s? d?ng
+    Dim DongCuoi As Long
+        DongCuoi = ws.Range(cot_DongCuoi & Rows.Count).End(xlUp).Row
+    Dim i As Long
+        i = 1
+    Dim o_STT As Range, VungSTT As Range
+        Set VungSTT = Range(cot_STT & Dong_BD & ":" & cot_STT & DongCuoi)
+    For Each o_STT In VungSTT
+        o_STT.Value = i
+        i = i + 1
+    Next o_STT
+End Sub
+
+
+Cach goi Sub
+
+Sub Test()
+    Call Data_STT(ThisWorkbook.Sheets("Sheet1"), 2, "A", "B")
+End Sub
